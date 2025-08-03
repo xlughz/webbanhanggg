@@ -1,0 +1,109 @@
+:root {
+  --main-bg: #1a1a2e;
+  --accent: #e94560;
+  --gray-blur: rgba(255, 255, 255, 0.05);
+  --text: #fff;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--main-bg);
+  color: var(--text);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background: #111827;
+  box-shadow: var(--shadow);
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text);
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: var(--accent);
+}
+
+.search-container {
+  position: relative;
+}
+
+#search-box {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px;
+  background: var(--gray-blur);
+  color: white;
+  backdrop-filter: blur(8px);
+  transition: 0.3s ease;
+  width: 200px;
+}
+
+#search-box:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+#search-box:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  width: 250px;
+}
+
+#suggestions {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: #222;
+  border-radius: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  box-shadow: var(--shadow);
+  z-index: 5;
+}
+
+#suggestions li {
+  padding: 10px;
+  color: #eee;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#suggestions li:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  #search-box {
+    width: 160px;
+  }
+}
